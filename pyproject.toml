@@ -6,14 +6,19 @@ authors = ["Ivan Fedorov <inbox@titaniumhocker.ru>"]
 license = "MIT"
 readme = "README.rst"
 repository = "https://github.com/titaniumhocker/mount"
-documentation = "https://mount.rtfd.io"
 packages = [
     { include = "mount" },
 ]
 include = [
-    { path = "CHANGES.rst", format="sdist"},
-    { path = "tests", format="sdist" },
-    { path = "docs", format="sdist" },
+    { path = "CHANGES.rst", format="sdist" },
+    { path = "README.rst", format="sdist" }
+]
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Linux",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Libraries"
 ]
 
 [tool.poetry.urls]
@@ -23,8 +28,7 @@ include = [
 pymnt = "mount.cli:main"
 
 [tool.poetry.dependencies]
-python = ">=3.10.1,<4.0"
-
+python = ">=3.9,<4.0"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.1.1"
@@ -33,9 +37,39 @@ flake8-black = "^0.3.6"
 flake8-isort = "^6.0.0"
 flake8-bandit = "<=3.0.0"
 flake8-bugbear = "<=23.3.12"
+flake8-docstrings = "<1.6.0"
 flakeheaven = "^3.2.1"
-pytest = "^7.2.2"
-pytest-cov = "^4.0.0"
+
+[tool.black]
+line_length = 88
+
+[tool.isort]
+profile = "black"
+src_paths = ["flask_constance"]
+line_length = 88
+
+[tool.flakeheaven]
+format = "colored"
+max_line_length = 88
+show_source = true
+
+[tool.flakeheaven.plugins]
+pyflakes = ["+*"]
+pycodestyle = ["+*", "-W503", "-E501"]
+flake8-docstrings = ["+*", "-D400", "-D107", "-D204", "-D105", "-D100"]
+flake8-isort = ["+*"]
+flake8-black = ["+*"]
+flake8-bugbear = ["+*"]
+flake8-bandit = ["+*"]
+
+[tool.mypy]
+files="mount"
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+check_untyped_defs = true
+no_implicit_optional = true
+show_error_codes = true
 
 [build-system]
 requires = ["poetry-core"]
