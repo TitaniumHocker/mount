@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mount"
-version = "0.1.0"
+version = "1.0.0"
 description = "Wrapper around sys/mount.h"
 authors = ["Ivan Fedorov <inbox@titaniumhocker.ru>"]
 license = "MIT"
