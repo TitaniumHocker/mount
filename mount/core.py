@@ -39,7 +39,7 @@ def mount(
             source.encode(),
             target.encode(),
             fstype.encode(),
-            flags.value if isinstance(flags, MountFlag) else flags,
+            int(flags),
             data.encode() if data is not None else data,
         )
         != 0
