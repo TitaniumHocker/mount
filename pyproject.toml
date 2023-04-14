@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mount"
-version = "0.1.0"
+version = "0.1.1"
 description = "Wrapper around sys/mount.h"
 authors = ["Ivan Fedorov <inbox@titaniumhocker.ru>"]
 license = "MIT"
@@ -16,7 +16,6 @@ include = [
 classifiers = [
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Linux",
   "Programming Language :: Python :: 3 :: Only",
   "Topic :: Software Development :: Libraries"
 ]
