@@ -53,15 +53,15 @@ with `NOEXEC` and `NOSYMFOLLOW` flags in temporary created directory:
        print("Mounted to: ", target)
 
 
-.. |lint| image:: https://github.com/TitaniumHocker/Flask-Constance/workflows/lint/badge.svg
+.. |lint| image:: https://github.com/TitaniumHocker/mount/workflows/lint/badge.svg
 
-.. |mypy| image:: https://github.com/TitaniumHocker/Flask-Constance/workflows/mypy/badge.svg
+.. |mypy| image:: https://github.com/TitaniumHocker/mount/workflows/mypy/badge.svg
 
 .. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
-.. |pythonver| image:: https://img.shields.io/pypi/pyversions/flask-constance
+.. |pythonver| image:: https://img.shields.io/pypi/pyversions/mount
    :alt: PyPI - Python Version
 
-.. |license| image:: https://img.shields.io/pypi/l/flask-constance
+.. |license| image:: https://img.shields.io/pypi/l/mount
    :alt: PyPI - License
