@@ -2,6 +2,8 @@ from enum import Enum
 
 
 class MountFlag(int, Enum):
+    """Mount flags."""
+
     #: Mount read-only.
     RDONLY = 1
     #: Ignore suid and sgid bits.
@@ -54,6 +56,8 @@ class MountFlag(int, Enum):
 
 
 class UmountFlag(int, Enum):
+    """Unmount flags."""
+
     #: Force unmounting.
     MNT_FORCE = 1
     #: Just detach from the tree.

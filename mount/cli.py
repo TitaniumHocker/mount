@@ -105,6 +105,7 @@ def _make_vervose(enabled: bool = False):
 
 
 def main(args: Namespace | None = None):
+    """CLI entrypoint."""
     namespace: Namespace = args or parser.parse_args()
     verbose = _make_vervose(namespace.verbose)
     verbose(namespace)
