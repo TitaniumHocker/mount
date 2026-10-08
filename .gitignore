@@ -127,3 +127,4 @@ dmypy.json
 
 pyrightconfig.json
 .flakeheaven_cache/
+.ruff_cache/
