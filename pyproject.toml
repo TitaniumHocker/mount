@@ -1,43 +1,41 @@
-[tool.poetry]
+[project]
 name = "mount"
 version = "1.0.0"
 description = "Wrapper around sys/mount.h"
-authors = ["Ivan Fedorov <inbox@titaniumhocker.ru>"]
+authors = [{ name = "Ivan Fedorov", email = "inbox@titaniumhocker.ru" }]
 license = "MIT"
+license-files = ["LICENSE"]
 readme = "README.rst"
-repository = "https://github.com/titaniumhocker/mount"
-packages = [
-    { include = "mount" },
-]
-include = [
-    { path = "CHANGES.rst", format="sdist" },
-    { path = "README.rst", format="sdist" }
-]
+requires-python = ">=3.9,<4.0"
+dependencies = []
 classifiers = [
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3 :: Only",
   "Topic :: Software Development :: Libraries"
 ]
 
-[tool.poetry.urls]
+[project.urls]
+Repository = "https://github.com/titaniumhocker/mount"
 "Bug Tracker" = "https://github.com/titaniumhocker/mount/issues"
 
-[tool.poetry.scripts]
+[project.scripts]
 pymnt = "mount.cli:main"
 
-[tool.poetry.dependencies]
-python = ">=3.9,<4.0"
+[dependency-groups]
+dev = [
+  "mypy>=1.1.1,<2.0.0",
+  "flake8<5.0.0",
+  "flake8-black>=0.3.6,<0.4.0",
+  "flake8-isort>=6.0.0,<7.0.0",
+  "flake8-bandit<=3.0.0",
+  "flake8-bugbear<=23.3.12",
+  "flake8-docstrings<1.6.0",
+  "flakeheaven>=3.2.1,<4.0.0",
+]
 
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.1.1"
-flake8 = "<5.0.0"
-flake8-black = "^0.3.6"
-flake8-isort = "^6.0.0"
-flake8-bandit = "<=3.0.0"
-flake8-bugbear = "<=23.3.12"
-flake8-docstrings = "<1.6.0"
-flakeheaven = "^3.2.1"
+[tool.uv.build-backend]
+module-root = ""
+source-include = ["CHANGES.rst"]
 
 [tool.black]
 line_length = 88
@@ -71,5 +69,5 @@ no_implicit_optional = true
 show_error_codes = true
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
