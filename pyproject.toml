@@ -1,6 +1,6 @@
 [project]
 name = "mount"
-version = "1.0.0"
+version = "2.0.0"
 description = "Wrapper around sys/mount.h"
 authors = [{ name = "Ivan Fedorov", email = "inbox@titaniumhocker.ru" }]
 license = "MIT"
