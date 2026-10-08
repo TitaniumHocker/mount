@@ -24,12 +24,13 @@ def mount(
     fstype: str,
     flags: int | MountFlag = 0,
     data: str | None = None,
-):
+) -> None:
     """Mount filesystem.
 
     :param source: Device/source to mount.
     :param target: Mountpoint.
-    :param fstype: Filesystem type. Available filesystem types can be found in /proc/filesystems.
+    :param fstype: Filesystem type. Available filesystem types can be found
+        in /proc/filesystems.
     :param flags: Mount flags.
     :param data: Mount options for specified filesystem.
     :raises OSError: If mount call failed with nonzero return code.
@@ -47,7 +48,7 @@ def mount(
         raise OSError(get_errno(), strerror(get_errno()))
 
 
-def umount(target: str, flags: int | UmountFlag = 0):
+def umount(target: str, flags: int | UmountFlag = 0) -> None:
     """Unmount filesystem.
 
     :param target: Mountpoint.

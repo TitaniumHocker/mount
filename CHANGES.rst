@@ -13,6 +13,12 @@ The format is based on `Keep a Changelog <https://keepachangelog.com/en/1.0.0>`_
 
 Unreleased.
 
+Changed
+-------
+
+- Minimum supported Python version is now 3.11.
+- Package is now typed: annotations are complete and ``py.typed`` marker is shipped.
+
 Removed
 -------
 

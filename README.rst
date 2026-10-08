@@ -3,10 +3,9 @@ mount
 
 |pythonver|
 |license|
-|black|
+|ruff|
 
-|lint|
-|mypy|
+|ci|
 
 
 Simple python wrapper around ``sys/mount.h``'s ``mount`` and ``umount2`` libc functions.
@@ -53,12 +52,35 @@ with `NOEXEC` and `NOSYMFOLLOW` flags in temporary created directory:
        print("Mounted to: ", target)
 
 
-.. |lint| image:: https://github.com/TitaniumHocker/mount/workflows/lint/badge.svg
+Development
+-----------
 
-.. |mypy| image:: https://github.com/TitaniumHocker/mount/workflows/mypy/badge.svg
+The project is managed with `uv <https://docs.astral.sh/uv/>`_:
 
-.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
+.. code:: sh
+
+   uv sync
+   uv run ruff format --check .
+   uv run ruff check .
+   uv run mypy
+   uv run pydoclint src/mount
+   uv run pytest
+
+Tests that perform real mounts need root and are skipped without it. To run
+them without touching the host mount table, start ``pytest`` in a private
+mount namespace, either unprivileged through a user namespace or as real root:
+
+.. code:: sh
+
+   unshare -rm uv run pytest
+   sudo unshare -m .venv/bin/pytest
+
+
+.. |ci| image:: https://github.com/TitaniumHocker/mount/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/TitaniumHocker/mount/actions/workflows/ci.yml
+
+.. |ruff| image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
+   :target: https://github.com/astral-sh/ruff
 
 .. |pythonver| image:: https://img.shields.io/pypi/pyversions/mount
    :alt: PyPI - Python Version
